@@ -1,6 +1,6 @@
 @inject('timeService', 'App\Services\Timeservices')
 
-@extends('admin.base')
+@extends('base')
 
 @section('content')
 	
@@ -15,7 +15,7 @@
 					</div>
 					<div class="card-header">
 						Data Produk
-						<a href="{{url('admin/produk/create')}}" class="btn btn-dark float-right"><i class="fas fa-plus"></i>  Tambah</a>
+						<a href="{{url('produk/create')}}" class="btn btn-dark float-right"><i class="fas fa-plus"></i>  Tambah</a>
 					</div>
 					<div class="card-body">
 						<table class="table table-datatable">
@@ -32,9 +32,9 @@
 									<td>{{$loop->iteration}}</td>
 									<td>
 										<div class="btn-group">
-											<a href="{{url('admin/produk', $produk->id)}}" class="btn btn-dark"><i class="fa fa-info"></i></a>
-											<a href="{{url('admin/produk', $produk->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-											<form action="{{url('admin/produk', $produk->id)}}" method="post" class="form-inline" onsubmit="return confirm('Yakin akan menghapus data ini???')">
+											<a href="{{url('produk', $produk->id)}}" class="btn btn-dark"><i class="fa fa-info"></i></a>
+											<a href="{{url('produk', $produk->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+											<form action="{{url('produk', $produk->id)}}" method="post" class="form-inline" onsubmit="return confirm('Yakin akan menghapus data ini???')">
 												@csrf
 												@method("delete")
 												<button class="btn btn-danger"><i class="fa fa-trash"></i></button>

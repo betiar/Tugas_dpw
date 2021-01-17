@@ -7,23 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\Traits\Attributes\UserAttributes;
+use App\Models\Traits\Relations\UserRelations;
+
 class User extends Authenticatable
 {
     protected $table = 'user';
     use HasFactory, Notifiable;
-
-    function kategori(){
-    	return $this->hasMany(kategori::class, 'id_user');
-    }
-    function produk(){
-    	return $this->hasMany(produk::class, 'id_user');
-    }
-
-    function getJenisKelaminStringAttribute(){
-    	return ($this->jenis_kelamin == 1) ? "Laki-Laki" : "Perempuan";
-    }
-
-    function setPasswordAttribute($value){
-    	$this->attributes['password'] = bcrypt($value);
-    }
+    use UserAttributes, UserRelations;
+    
 }

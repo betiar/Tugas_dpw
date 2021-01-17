@@ -23,10 +23,13 @@ class AuthController extends Controller{
 	}
 	function loginProcess(){
 		if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
-			return redirect('admin/beranda')->with('success', 'Login Berhasil');
+			$user = Auth::user();
+			if($user->level == 1) return redirect('beranda')->with('success', 'Login Berhasil');
+			if($user->level == 0) return redirect('beranda')->with('success', 'Login Berhasil');
 		}else{
 			return back()->with('danger', 'Login Gagal Silahkan Periksa Email Dan Password Anda');
 		}
+		
 	}
 	function logout(){
 		Auth::logout();

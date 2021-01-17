@@ -3,11 +3,11 @@ namespace App\Models\Traits\Relations;
 
 use App\Models\Produk;
 
-trait ProdukRelations {
+trait UserRelations {
 	function seller(){
-		return $this->belongsTo(Produk::class, 'id_user');
+		return $this->hasMany(Produk::class, 'id_user');
 	}
 }
 
 
- ?>
+?>

@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\AuthController;
 
 
@@ -26,12 +26,14 @@ Route::get('/', function(){return view('welcome');});
 
 /*CLIENT*/
 Route::get('index', [ClientController::class, 'index']);
-Route::get('checkout', [ClientController::class, 'checkout']);
+Route::get('produk', [ClientController::class, 'show']);
 Route::get('shop', [ClientController::class, 'shop']);
-Route::get('test', [ClientController::class, 'test']);
-Route::get('detail', [ClientController::class, 'detail']);
 Route::get('cart', [ClientController::class, 'cart']);
-Route::get('client/{client}', [ClientController::class, 'show']);
+Route::get('checkout', [ClientController::class, 'checkout']);
+Route::get('{produk}', [ClientController::class, 'detail']);
+
+Route::get('testAjax', [ClientController::class, 'testAjax']);
+
 
 /*AUTHENTICATION*/
 Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -41,16 +43,14 @@ Route::get('register', [AuthController::class, 'register']);
 Route::post('register', [AuthController::class, 'store']);
 
 /*RESOURCED ROUTER, PREFIX & GROUPING*/
-Route::prefix('admin')->middleware('auth')->group(function(){
+Route::middleware('auth')->group(function(){
 	/*HOME*/
-	Route::resource('beranda', HomeController::class);
-	/*KATEGORI*/
-	Route::resource('kategori', KategoriController::class);
+	Route::get('beranda', [HomeController::class, 'admin']);
 	/*PRODUK*/
 	Route::resource('produk', ProdukController::class);
 	Route::post('produk/filter', [ProdukController::class, 'filter']);
 	/*USER*/
 	Route::resource('user', UserController::class);
+	Route::resource('penjual', PenjualController::class);
+	
 });
-
-

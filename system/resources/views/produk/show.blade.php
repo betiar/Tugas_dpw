@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('base')
 
 @section('content')
 	
@@ -8,18 +8,18 @@
 				<div class="card">
 					<div class="card-header">
 						Detail Produk
-						<a href="{{url('admin/produk')}}" class="btn btn-dark float-right"><i class="fas fa-arrow-left"></i>  Kembali</a>
+						<a href="{{url('produk')}}" class="btn btn-dark float-right"><i class="fas fa-arrow-left"></i>  Kembali</a>
 
 					</div>
 					<div class="card-body">
 						<h2>{{$produk->nama}}</h2>
 						<img src="{{url("public/$produk->gambar")}}">
-						<p> Harga : {{$produk->format_harga}} |
-							Berat : {{$produk->format_berat}} |
+						<p> Harga : {{$produk->harga}} |
+							Berat : {{$produk->berat}} |
 							Stok : {{$produk->stok}} |
-							Penjual : {{$produk->seller->username}}
+							Penjual : {{$produk->seller}}
 						</p> <br>
-						<p>Tanggal Produksi : {{$produk->created_at->diffForHumans()}}</p>
+						<p>Tanggal Produksi : {{$produk->created_at}}</p>
 						<p> Deskripsi : <br> {!! nl2br($produk->deskripsi) !!}</p>
 					</div>
 				</div>

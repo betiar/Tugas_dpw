@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 class HomeController extends Controller{
-	function index(){
-		return view('beranda');
+	function admin(){
+		return view('user.beranda');
 	}
-
 }
  ?>

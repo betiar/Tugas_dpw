@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('base')
 
 @section('content')
 	
@@ -18,7 +18,7 @@
 						Edit Data Produk
 					</div>
 					<div class="card-body">
-						<form action="{{url('admin/produk', $produk->id)}}" method="post" enctype="multipart/form-data">
+						<form action="{{url('produk', $produk->id)}}" method="post" enctype="multipart/form-data">
 							@csrf
 							@method("PUT")
 							<div class="form-group">
@@ -47,7 +47,7 @@
 							</div>
 							<div class="form-group">
 								<label for="" class="control-label">Gambar</label>
-								<input type="file" class="form-control" name="gambar" accept=".jpg" >
+								<input type="file" class="form-control" name="gambar" accept=".jpg">
 							</div>
 							<div class="form-group">
 								<label for="" class="control-label">Deskripsi</label>

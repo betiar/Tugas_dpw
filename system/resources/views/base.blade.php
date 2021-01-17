@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <link rel="shortcut icon" href="{{url('public')}}/img/favicon.png">
+  <link rel="shortcut icon" href="{{'public'}}/distribution/img/favicon.png">
 
   <title> Admin adheva shop</title>
 
@@ -26,9 +26,9 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-  @include('admin.section.header')
+  @include('section.header')
 
-  @include('admin/section/sidebar')
+  @include('section.sidebar')
 
   <div class="content-wrapper">
     <div class="container">
@@ -41,7 +41,7 @@
     @yield('content')
   </div>
 
-  @include('admin/section/footer')
+  @include('section.footer')
 </div>
 
 <script src="{{url('public')}}/plugins/jquery/jquery.min.js"></script>

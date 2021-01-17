@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('base')
 
 @section('content')
 	
@@ -8,7 +8,7 @@
 				<div class="card">
 					<div class="card-header">
 						Detail User
-						<a href="{{url('admin/user')}}" class="btn btn-dark float-right"><i class="fas fa-arrow-left"></i>  Kembali</a>
+						<a href="{{url('user')}}" class="btn btn-dark float-right"><i class="fas fa-arrow-left"></i>  Kembali</a>
 
 					</div>
 					<div class="card-body">

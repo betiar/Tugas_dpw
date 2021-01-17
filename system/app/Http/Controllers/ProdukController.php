@@ -6,7 +6,7 @@ use App\Models\Produk;
 class ProdukController extends Controller{
 	function index(){
 		$user = request()->user();
-		$data['list_produk'] =  $user->produk;
+		$data['list_produk'] =  Produk::all();
 		return view('produk.index', $data);
 	}
 	function create(){
@@ -24,10 +24,11 @@ class ProdukController extends Controller{
 
 		$produk->handleUploadGambar();
 
-		return redirect('admin/produk')->with('success', 'Data Berhasil Ditambahkan');
+		return redirect('produk')->with('success', 'Data Berhasil Ditambahkan');
 
 	}
-	function show(Produk $produk){
+	function show( $produk){
+		$produk = Produk::findOrFail($produk);
 		$data['produk'] = $produk;
 		return view('produk.show', $data); 
 	}
@@ -43,14 +44,16 @@ class ProdukController extends Controller{
 		$produk->deskripsi = request('deskripsi');
 		$produk->save();
 
+		$produk->handleDeleteGambar();
 		$produk->handleUploadGambar();
 
-		return redirect('admin/produk')->with('warning', 'Data Berhasil Diubah');
+		return redirect('produk')->with('warning', 'Data Berhasil Diubah');
 	}
 	function destroy(Produk $produk){
+		$produk->handleDeleteGambar();
 		$produk->delete();
 
-		return redirect('admin/produk')->with('danger', 'Data Berhasil Dihapus');
+		return redirect('produk')->with('danger', 'Data Berhasil Dihapus');
 	}
 	function filter(){
 		$nama = request('nama');

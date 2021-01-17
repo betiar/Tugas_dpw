@@ -4,7 +4,7 @@
 	<meta charset="utf-8"/>
 	<title>Login</title>
 	<link href="{{ url('public')}}/css/login.css" rel="stylesheet" type="text/css"/>
-	<link href="{{url('public')}}/img/favicon.png" rel="shortcut icon"/>
+  <link rel="shortcut icon" href="{{'public'}}/distribution/img/favicon.png">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	<script src="{{url('public')}}/plugins/jquery/jquery.min.js"></script>
 	<script src="{{url('public')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -15,8 +15,8 @@
 </head>
 <body>
 	<div class="logo">
-			<img src="{{url('public')}}/img/favicon.png" style="width: 20px;height: 20px;">
-			<a href="{{url('index')}}"><font>KO</font>PI</a>
+			<img src="{{'public'}}/distribution/img/favicon.png" style="width: 20px;height: 20px;">
+			<a href="{{url('index')}}"><font>AD</font>HEVA</a>
 	</div>
 	<section class="login-container">
 		<div class="login-inputs">

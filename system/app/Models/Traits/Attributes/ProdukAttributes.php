@@ -14,7 +14,7 @@ trait ProdukAttributes {
 	}
 	
 	function handleUploadGambar(){
-		
+
 		if(request()->hasFile('gambar')){
 			$gambar = request()->file('gambar');
 			$destination = "images/produk";

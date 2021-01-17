@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('base')
 
 @section('content')
 	
@@ -10,7 +10,7 @@
 						Tambah Data User
 					</div>
 					<div class="card-body">
-						<form action="{{url('admin/user')}}" method="post">
+						<form action="{{url('user')}}" method="post">
 							@csrf
 							<div class="form-group">
 								<label for="nama" class="control-label">Nama</label>
@@ -26,13 +26,17 @@
 							</div>
 							<div class="form-group">	
 								<label for="" class="control-label">Jenis Kelamin</label>
-								<div class="input-group">
-								 	<div class="input-group-prepend">
-								  		<div class="input-group-text">
-								    		<input type="radio" aria-label="Radio button for following text input">
-								    	</div>
-								    </div>
-									<label for="" class="form-control"> Laki-Laki</label>
+								<div class="form-check">
+								    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
+								    <label class="form-check-label" for="flexRadioDefault1">
+								    Laki - Laki
+								    </label>
+								</div>
+								<div class="form-check">
+								    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="2">
+								    <label class="form-check-label" for="flexRadioDefault2">
+							 	    Perempuan
+								    </label>
 								</div>
 							</div>
 							<div class="form-group">
